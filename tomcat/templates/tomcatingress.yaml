@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Ingress
+metadata:
+  name: Ingress-tom
+spec:
+  ingressClassName: nginx
+  rules:
+  - host:
+    http:
+      paths:
+        - pathType: Prefix
+          path: "/"
+          backend:
+            service:
+              name: {{ .Values.deployment_name }}
+              port:
+                number: {{ .Values.port }}

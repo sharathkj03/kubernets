@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tomcat
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: tomcat
+    stratergy: rollingupdate
+      rollingUpdate:
+        maxsurge: 1
+        maxunavailable: 1
+    template:
+
+  
